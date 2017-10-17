@@ -53,6 +53,10 @@ set tags=./tags;,tags;
 "  NonRecursiveMap <don't print cmd> <Spacebar> :(don't print output) undohighlight <|> echo <CR>
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
+" visual cues
+set cursorcolumn
+set cursorline
+
 " gvim
 if has("gui_running")
   colorscheme desert
