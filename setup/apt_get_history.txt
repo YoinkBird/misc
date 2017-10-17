@@ -1,0 +1,13 @@
+# section for applications which don't need to be run right away
+echo "important things"
+sudo apt-get install -y vim git konsole realpath
+echo ""
+sudo apt-get install -y jupyter-notebook jupyter-qtconsole
+
+# section for gui-based configs:
+echo "for caps-to-control"
+sudo apt-get install -y gnome-tweak-tool
+gnome-tweak-tool
+echo "for customizing window management"
+sudo apt-get install -y compizconfig-settings-manager
+compizconfig-settings-manager
