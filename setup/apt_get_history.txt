@@ -11,3 +11,18 @@ gnome-tweak-tool
 echo "for customizing window management"
 sudo apt-get install -y compizconfig-settings-manager
 compizconfig-settings-manager
+
+# misc
+
+
+# many useful utils
+echo  xkeycaps vim git python-pip realpath konsole xclip tree kdiff3 | xargs -n 1 sudo apt-get install -y
+sudo apt install -y vim-gtk
+# python and documentation related
+echo jupyter-notebook jupyter-qtconsole pandoc pandoc-citeproc grip | xargs -n 1 sudo apt-get install -y
+# for displaylink usb monitors
+echo conda dkms | xargs -n 1 sudo apt-get install -y
+
+# tkinter for python for matplotlib
+sudo apt install python3.6-tk
+sudo apt install graphviz
