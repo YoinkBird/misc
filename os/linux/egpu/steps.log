@@ -1,0 +1,5 @@
+# many missing
+
+# rename nouveu
+sudo mv /lib/modules/4.15.0-23-generic/kernel/drivers/gpu/drm/nouveau/nouveau.ko{,.disable}
+

@@ -1,0 +1,16 @@
+# steps to list drivers and then uninstall
+  308  dpkg -l nvidia*
+  358  sudo dpkg -P nvidia-396-dev
+  359  sudo dpkg -P cuda-drivers
+  360  sudo dpkg -P cuda-runtime-9-2
+  361  sudo dpkg -P cuda-9-2
+  362  sudo dpkg -P cuda-runtime-9-2
+  363  sudo dpkg -P cuda-demo-suite-9-2
+  364  sudo dpkg -P cuda-drivers
+  365  sudo dpkg -P cuda-runtime-9-2
+  366  sudo dpkg -P cuda-drivers
+  367  sudo dpkg -P nvidia-396-dev
+  369  sudo dpkg -P libcuda1-396
+  370  sudo dpkg -P nvidia-opencl-icd-396
+  371  sudo dpkg -P nvidia-396-dev
+
