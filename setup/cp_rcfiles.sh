@@ -26,6 +26,7 @@ for file in $(ls -A $rcdir); do
     # technically not necessary, since the above check is for existence or desired overwrite
     #+ If it doesn't exist, then it doesn't matter if linking is forced
     #+ anyway, that's a logic thingy and one more 'if' won't hurt.
+    $dbecho ln -sv ${rcdir}/${file} ~/${file}
     if [ ${overwrite} -eq 1 ] ; then
       $dbecho ln -sfv ${rcdir}/${file} ~/${file}
     fi
