@@ -1,0 +1,2 @@
+alias pp import pprint; pprint.pprint(%*)
+alias v l .
