@@ -1,0 +1,4 @@
+// note: not a complete JS file, just for demo purposes
+const CURRENT_CASE = __TMPLVAR_ITERATION_CTR ;
+
+describe(`Test case #${CURRENT_CASE}.`, function() {
