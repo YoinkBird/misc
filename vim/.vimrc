@@ -6,7 +6,7 @@ set nocompatible
 let g:loaded_logipat = 1
 
 " visual appearance
-"set t_Co=256   "doesn't work in this old version of Konsole
+set t_Co=256   " doesn't work in old versions of terminals
 set number  "line numbers
 set showtabline=2 " always show tabline (even for one file)
 
@@ -53,8 +53,14 @@ set tags=./tags;,tags;
 "  NonRecursiveMap <don't print cmd> <Spacebar> :(don't print output) undohighlight <|> echo <CR>
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
+" colors
+" https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax
+"+ clear with ':highlight clear cursorcolumn'
+"+ clear with ':highlight cursorcolumn ctermbg=None'
 " visual cues
 set cursorcolumn
+highlight cursorcolumn term=underline ctermbg=None
+" highlight cursorcolumn ctermbg=DarkGreen
 set cursorline
 
 " gvim
