@@ -1,4 +1,6 @@
 #export CLICOLOR=1
+# vim mode - command, insert
+#+ TODO: enable common shortcuts within insert mode, e.g. ctrl+a and ctrl+l
 set -o vi
 # generated with: http://ezprompt.net/
 # get current branch in git repo
@@ -58,16 +60,22 @@ function nonzero_return() {
 
 __prompt_command(){
   local rc="$?"
-  #if [[ ! -z "${rc}" ]]; then
+  # display return-code in prompt; set to 'green' for '0' and 'red' for 'non-zero'
   if [[ "${rc}" -eq 0 ]]; then
-    #PS1="[rc:$rc][\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
-    PS1="[rc:\[\e[32m\]$rc\[\e[m\]][\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
+    PS1="[rc:\[\e[32m\]$rc\[\e[m\]]"
   else
-    PS1="[rc:\[\e[31m\]$rc\[\e[m\]][\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
+    PS1="[rc:\[\e[31m\]$rc\[\e[m\]]"
   fi
+  # append remainder of args
+  # readline : (color) description
+  # -------------------------------
+  # \s : (default) shell-name (bash)
+  # \t : (blue)    time
+  # \u : (default) user
+  # \w : (yellow)  working dir
+  # parse_git_branch : display git branch and status
+  PS1="${PS1}[\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
 }
 
-# export PS1="[rc:\[\e[31m\]\`nonzero_return\`\[\e[m\]][\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
-# export PS1="[rc:`echo $?`][\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
-
+# updates prompt every time
 PROMPT_COMMAND=__prompt_command
