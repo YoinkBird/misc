@@ -1,0 +1,20 @@
+# definitions: src: https://stackoverflow.com/a/40987092
+# more about readline: src: https://unix.stackexchange.com/questions/395223/question-on-variables-in-etc-inputrc
+# colors : src: https://stackoverflow.com/a/33206814
+set editing-mode vi
+set show-mode-in-prompt on
+# vi-command mode conditional settings. src: https://unix.stackexchange.com/a/104101
+$if mode=vi
+set vi-cmd-mode-string "\1\e[32m\2(c)\1\e[0m\2 "
+set vi-ins-mode-string "\1\e[33m\2(i)\1\e[0m\2 "
+
+
+## vvv already mapped
+## set keymap vi-command
+## # these are for vi-command mode
+## Control-l: clear-screen
+
+set keymap vi-insert
+# these are for vi-insert mode
+Control-l: clear-screen
+$endif
