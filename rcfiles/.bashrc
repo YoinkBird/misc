@@ -1,10 +1,12 @@
-#export CLICOLOR=1
+export CLICOLOR=1
 # vim mode - command, insert
 #+ TODO: enable common shortcuts within insert mode, e.g. ctrl+a and ctrl+l
 set -o vi
 #
 # bash lists the status of any stopped and running jobs before exiting an interactive shell
-set -o checkjobs
+shopt -s checkjobs
+# press C-d 3 times to exit interactive shell. src: https://unix.stackexchange.com/questions/139115/disable-ctrl-d-window-close-in-terminator-terminal-emulator ; src: man bash
+export IGNOREEOF=2
 
 # generated with: http://ezprompt.net/
 # get current branch in git repo
