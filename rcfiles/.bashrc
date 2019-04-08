@@ -80,7 +80,12 @@ __prompt_command(){
   # \u : (default) user
   # \w : (yellow)  working dir
   # parse_git_branch : display git branch and status
-  PS1="${PS1}[\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` \n"
+  PS1="${PS1}[\s]"
+  PS1="${PS1}[\[\e[34m\]\t\[\e[m\]]"
+  PS1="${PS1}[\u]"
+  PS1="${PS1}[\[\e[33m\]\w\[\e[m\]]"
+  PS1="${PS1}\`parse_git_branch\`"
+  PS1="${PS1} \r\n$ "
 }
 
 # updates prompt every time
