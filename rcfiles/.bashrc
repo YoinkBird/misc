@@ -2,6 +2,10 @@
 # vim mode - command, insert
 #+ TODO: enable common shortcuts within insert mode, e.g. ctrl+a and ctrl+l
 set -o vi
+#
+# bash lists the status of any stopped and running jobs before exiting an interactive shell
+set -o checkjobs
+
 # generated with: http://ezprompt.net/
 # get current branch in git repo
 function parse_git_branch() {
@@ -74,7 +78,7 @@ __prompt_command(){
   # \u : (default) user
   # \w : (yellow)  working dir
   # parse_git_branch : display git branch and status
-  PS1="${PS1}[\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` "
+  PS1="${PS1}[\s][\[\e[34m\]\t\[\e[m\]][\u][\[\e[33m\]\w\[\e[m\]]\`parse_git_branch\` \n"
 }
 
 # updates prompt every time
