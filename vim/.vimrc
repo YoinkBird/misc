@@ -21,6 +21,10 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" no comment indent . src: https://unix.stackexchange.com/a/106538
+set indentkeys-=0#
+
+
 " code recognition
 syntax on
 if &filetype == "*"
@@ -60,8 +64,11 @@ set tags=./tags;,tags;
 " visual cues
 set cursorcolumn
 highlight cursorcolumn term=underline ctermbg=None
-" highlight cursorcolumn ctermbg=DarkGreen
+highlight cursorcolumn ctermbg=DarkGrey
 set cursorline
+
+" better mouse scrolling
+set mouse=a
 
 " gvim
 if has("gui_running")
