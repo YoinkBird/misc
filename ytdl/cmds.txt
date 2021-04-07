@@ -1,0 +1,17 @@
+    1  wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+    2  chmod a+rx /usr/local/bin/youtube-dl 
+    3  youtube-dl -U
+    4  youtube-dl --list-subs https://www.youtube.com/watch?v=<ID>
+    5  youtube-dl --help
+    6  youtube-dl --list-subs https://www.youtube.com/watch?v=<ID>\
+    7  youtube-dl --list-subs https://www.youtube.com/watch?v=<ID>
+    8  youtube-dl --sub-lang=uk https://www.youtube.com/watch?v=<ID>
+    9  ls -ltr
+   10  youtube-dl --sub-lang=uk --skip-download https://www.youtube.com/watch?v=<ID>
+   11  ls -ltr
+   12  youtube-dl --write-auto-sub --sub-lang=uk --skip-download https://www.youtube.com/watch?v=<ID>
+   13  ls -ltr
+   14  youtube-dl --write-auto-sub --sub-lang=en --skip-download https://www.youtube.com/watch?v=<ID>
+   15  youtube-dl --write-auto-sub --sub-lang=en https://www.youtube.com/watch?v=<ID>
+   16  history
+   17  history > cmds.txt
