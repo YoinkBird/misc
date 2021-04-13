@@ -20,13 +20,23 @@ scriptdir=$(dirname $0)
 repodir=$(dirname ${scriptdir})
 rcdir=$(realpath ${repodir}/rcfiles)
 
+filelist="$(find ${rcdir} -printf "%P\n")"
 echo "# PROCESSING:
-$(ls -1 -A $rcdir)"
-for file in $(ls -A $rcdir); do
+${filelist[@]}"
+# need to cd in order to examine file types
+cd "${rcdir}"
+for file in ${filelist[@]}; do
   echo "#---------"
-  # really hacky; for directories this really doesn't work well at all
+  # note that 'file' can also be a dir; maybe worth refactoring the name in future
   echo $file
   if [ ! -e ~/${file} ] || [ ${overwrite} -eq 1 ] ; then
+    # if source is actually a directory, explicitely create instead of symlinking
+    #+ thoughts: for .config, could be useful to link the entire dir back into git-tracked repo
+    #+ OTOH, if the .config already exists when this runs, would need to move it into this repo before symlinking it, which could get messy
+    if [[ -d ${file} ]]; then
+      $dbecho mkdir -p ~/${file}
+      continue
+    fi
     lnopt="-sv"
     if [ ${overwrite} -eq 1 ] ; then
       lnopt="${lnopt}f"
@@ -40,3 +50,5 @@ for file in $(ls -A $rcdir); do
   # quick check
   ls -ltd ~/${file} || echo "# ERROR: did not configure ~/${file}"
 done
+echo "# DONE"
+exit 0
