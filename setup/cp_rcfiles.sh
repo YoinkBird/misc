@@ -12,27 +12,31 @@ if [[ $# > 0 ]]; then
   if [[ $1 =~ overwrite ]]; then
     overwrite=1
   fi
+else
+  echo "# INFO: preview mode"
 fi
 
 scriptdir=$(dirname $0)
 repodir=$(dirname ${scriptdir})
 rcdir=$(realpath ${repodir}/rcfiles)
 
+echo "# PROCESSING:
+$(ls -1 -A $rcdir)"
 for file in $(ls -A $rcdir); do
   echo "#---------"
+  # really hacky; for directories this really doesn't work well at all
   echo $file
   if [ ! -e ~/${file} ] || [ ${overwrite} -eq 1 ] ; then
-    # $dbecho cp -v ${rcdir}/${file} ~/${file}
-    # technically not necessary, since the above check is for existence or desired overwrite
-    #+ If it doesn't exist, then it doesn't matter if linking is forced
-    #+ anyway, that's a logic thingy and one more 'if' won't hurt.
-    $dbecho ln -sv ${rcdir}/${file} ~/${file}
+    lnopt="-sv"
     if [ ${overwrite} -eq 1 ] ; then
-      $dbecho ln -sfv ${rcdir}/${file} ~/${file}
+      lnopt="${lnopt}f"
     fi
+    $dbecho ln "${lnopt}" ${rcdir}/${file} ~/${file}
   else
-    diff ${rcdir}/${file} ~/${file}
+    set -x
+    diff --color ${rcdir}/${file} ~/${file} || echo "# WARN: did not update ~/${file}"
+    set +x
   fi
   # quick check
-  ls -ltd ${rcdir}/${file}
+  ls -ltd ~/${file} || echo "# ERROR: did not configure ~/${file}"
 done
