@@ -1,3 +1,10 @@
 [user]
-	email = YoinkBird2010@gmail.com
-	name = yoinkbird
+	email = TODO
+	name = TODO
+[diff]
+	tool = kdiff3
+[merge]
+	tool = kdiff3
+[core]
+	autocrlf = false
+	editor = nvim

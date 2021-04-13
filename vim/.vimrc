@@ -15,6 +15,10 @@ set backspace=indent,eol,start "without this, can't ^H immediately after 'i'
 "fixdel
 "set t_kb=^?
 
+" navigation
+" vvv remember to use h,j,k,l for jumping
+set relativenumber
+
 "indentation
 set autoindent
 set expandtab
@@ -24,13 +28,19 @@ set softtabstop=2
 " no comment indent . src: https://unix.stackexchange.com/a/106538
 set indentkeys-=0#
 
+" always unix. src: https://stackoverflow.com/a/45459733. also set git autocrlf=false in ~/.gitconfig. src: https://stackoverflow.com/a/2825829
+set ffs=unix
+" stop touching things. stopit. stopstopstop:  When writing a file and this option is on, <EOL> at the end of file will be restored if missing.
+set nofixendofline
 
 " code recognition
 syntax on
-if &filetype == "*"
-  setfiletype perl
-elseif expand('%') == "*sqlite"
+"if &filetype == "*"
+"  setfiletype perl
+if expand('%') == "*sqlite"
   setfiletype sql
+elseif expand('%') == "*hcl"
+  setfiletype tf
 endif
 filetype plugin indent on
 
