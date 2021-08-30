@@ -44,6 +44,9 @@ elseif expand('%') == "*hcl"
 endif
 filetype plugin indent on
 
+" markdown settings
+let g:markdown_fenced_languages=['bash=sh', 'sh', 'json=javascript', 'diff']
+
 " custom shift+%
 "TEMP
 "so ~/.vim/plugins/matchit/plugin/matchit.vim
@@ -79,6 +82,12 @@ set cursorline
 
 " better mouse scrolling
 set mouse=a
+
+" netrw
+" enable numbers, src: https://stackoverflow.com/a/8731175
+" +  /usr/local/Cellar/vim/8.2.2800/share/vim/vim82/autoload/netrw.vim
+" + call s:NetrwInit("g:netrw_bufsettings" , "noma nomod nonu nobl nowrap ro nornu")
+let g:netrw_bufsettings = "noma nomod nu nobl nowrap ro nornu"
 
 " gvim
 if has("gui_running")
