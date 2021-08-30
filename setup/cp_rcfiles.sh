@@ -34,6 +34,7 @@ for file in ${filelist[@]}; do
   # note that 'file' can also be a dir; maybe worth refactoring the name in future
   echo $file
   if [ ! -e ~/${file} ] || [ ${overwrite} -eq 1 ] ; then
+    test -z $dbecho && >&2 echo "# CREATING" || >&2 echo "# PREVIEW"
     # if source is actually a directory, explicitely create instead of symlinking
     #+ thoughts: for .config, could be useful to link the entire dir back into git-tracked repo
     #+ OTOH, if the .config already exists when this runs, would need to move it into this repo before symlinking it, which could get messy
@@ -45,14 +46,16 @@ for file in ${filelist[@]}; do
     if [ ${overwrite} -eq 1 ] ; then
       lnopt="${lnopt}f"
     fi
-    $dbecho ln "${lnopt}" ${rcdir}/${file} ~/${file}
+    >&2 $dbecho ln "${lnopt}" ${rcdir}/${file} ~/${file}
+    test -z $dbecho || continue
   else
+    >&2 echo "# CHECKING"
     set -x
     diff ${diffopts} ${rcdir}/${file} ~/${file} || >&2 echo "# WARN: did not update ~/${file}"
     set +x
   fi
   # quick check
-  ls -ltd ~/${file} || echo "# ERROR: did not configure ~/${file}"
+  ls -ltd ~/${file} || >&2 echo "# ERROR: did not configure ~/${file}"
 done
 echo "# DONE"
 exit 0
