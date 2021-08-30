@@ -20,7 +20,11 @@ scriptdir=$(dirname $0)
 repodir=$(dirname ${scriptdir})
 rcdir=$(realpath ${repodir}/rcfiles)
 
-filelist="$(find ${rcdir} -printf "%P\n")"
+# default to 'find' unless 'gfind' found (on MacOS)
+find_util="$(which gfind > /dev/null 2>&1 && echo "gfind" || echo "find")"
+filelist="$(${find_util} ${rcdir} -printf "%P\n")"
+# add color to diff if present
+diffopts="$(diff --help | grep '\--color\b' > /dev/null 2>&1 && echo "--color=always" || echo "")"
 echo "# PROCESSING:
 ${filelist[@]}"
 # need to cd in order to examine file types
@@ -44,7 +48,7 @@ for file in ${filelist[@]}; do
     $dbecho ln "${lnopt}" ${rcdir}/${file} ~/${file}
   else
     set -x
-    diff --color ${rcdir}/${file} ~/${file} || echo "# WARN: did not update ~/${file}"
+    diff ${diffopts} ${rcdir}/${file} ~/${file} || >&2 echo "# WARN: did not update ~/${file}"
     set +x
   fi
   # quick check
