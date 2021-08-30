@@ -1,0 +1,27 @@
+# personal settings
+# never check in progress docs at the top level; this is usually a symlink to docs/worklogs/<ticket>/progress_<ticket>_<description>
+progress_*
+# most repos won't have this, but it's nice to set one up with the current ticket information
+.gitmessage
+
+# https://github.com/github/gitignore/blob/master/Global/Vim.gitignore
+
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~

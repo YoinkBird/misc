@@ -7,4 +7,7 @@
 	tool = kdiff3
 [core]
 	autocrlf = false
-	editor = nvim
+	editor = vim
+	excludesFile = ~/.gitignore
+[message]
+	template = ~/.gitmessage
