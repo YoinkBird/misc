@@ -33,7 +33,8 @@ for file in ${filelist[@]}; do
   echo "#---------"
   # note that 'file' can also be a dir; maybe worth refactoring the name in future
   echo $file
-  if [ ! -e ~/${file} ] || [ ${overwrite} -eq 1 ] ; then
+  # if file doesn't exist it could be a broken symlink, so check that it's not actually a symlink
+  if [ ! -e ~/${file} ] && [ ! -L ~/${file} ] || [ ${overwrite} -eq 1 ] ; then
     test -z $dbecho && >&2 echo "# CREATING" || >&2 echo "# PREVIEW"
     # if source is actually a directory, explicitely create instead of symlinking
     #+ thoughts: for .config, could be useful to link the entire dir back into git-tracked repo
@@ -54,8 +55,8 @@ for file in ${filelist[@]}; do
     diff ${diffopts} ${rcdir}/${file} ~/${file} || >&2 echo "# WARN: did not update ~/${file}"
     set +x
   fi
-  # quick check
-  ls -ltd ~/${file} || >&2 echo "# ERROR: did not configure ~/${file}"
+  # quick check; note that 'test -e' also verifies whether a symlink is broken, hence the diagnostic 'ls -ld' in the ERROR msg
+  (test -e ~/${file} && ls -ltd ~/${file}) || >&2 echo "# ERROR: did not configure ~/${file}, examine: $(ls -ld ~/${file})"
 done
 echo "# DONE"
 exit 0
