@@ -63,3 +63,6 @@ add the `bin/` where it's missing
 
 ## stale old version:
  http://kdiff3.sourceforge.net/
+
+# AWS CLI 
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd

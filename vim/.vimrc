@@ -94,6 +94,11 @@ if has("gui_running")
   colorscheme desert
 endif
 
+" do not automatically read the file
+set noautoread
+
 " tips
 " scroll both windows
 " :windo set scrollbind
+"
+"

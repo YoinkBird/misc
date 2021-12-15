@@ -4,3 +4,6 @@
 #set -eo pipefail
 eval $(ssh-agent )
 ssh-add $(ls ~/.ssh/key_* | grep -v '\.pub$')
+
+# test with:
+#+ ssh -T git@<host>

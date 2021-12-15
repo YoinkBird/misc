@@ -53,3 +53,6 @@ brew install sl
 # difftools
 brew install meld
 brew install ydiff
+
+# database
+brew install pgcli
