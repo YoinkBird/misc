@@ -1,0 +1,21 @@
+# create .desktop entry for private windows
+# more info about .desktop: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+cd /usr/share/applications/
+cp firefox.desktop firefox-private.desktop
+$ diff firefox.desktop firefox-private.desktop
+3c3
+< Name=Firefox Web Browser
+---
+> Name=Private Firefox Web Browser
+153c153
+< Exec=firefox %u
+---
+> Exec=firefox -private-window
+# have to run manually:
+# sources:
+# * src: https://unix.stackexchange.com/questions/139335/how-to-resize-a-png-file-from-the-command-line
+# * icon from https://blog.mozilla.org/mozilla/firefoxs-private-browsing-mode-upleveled-for-you/
+find /usr/share/icons/ -name 'firefox-private*' | perl -s -nle 'm/(.*?)(\d+x\d+)(.*)/g && print("sudo convert -resize $2 $f $1$2$3; file $1$2$3")' -- -f=$PWD/firefox-private.png
+
+# https://askubuntu.com/a/1242522
+sudo update-icon-caches /usr/share/icons/*
