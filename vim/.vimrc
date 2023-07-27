@@ -79,6 +79,8 @@ set cursorcolumn
 highlight cursorcolumn term=underline ctermbg=None
 highlight cursorcolumn ctermbg=DarkGrey
 set cursorline
+" term colors, via https://askubuntu.com/a/126
+set termguicolors
 
 " better mouse scrolling
 set mouse=a
