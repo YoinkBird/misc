@@ -134,3 +134,23 @@ if(argc() == 0)
   au VimEnter * nested :call LoadSession()
 endif
 au VimLeave * :call MakeSession()
+
+""""""""""""""""""""""""""""""""""""""
+" plugins
+" ---
+" Prerequisite:
+" https://github.com/tpope/vim-commentary
+" Usage:
+" Comment stuff out. Use
+"  gcc to comment out a line (takes a count)
+"  gc to comment out the target of a motion (for example gcap to comment out a paragraph)
+"  gc in visual mode to comment out the selection
+"  gc in operator pending mode to target a comment.
+" You can also use it as a command
+"  either with a range like :7,17Commentary
+"  or as part of a :global invocation like with :g/TODO/Commentary.
+" bindings: https://vi.stackexchange.com/q/39337
+imap <C-_> <Esc>:Commentary<CR>
+nmap <C-_> gcc
+vmap <C-_> gc
+" ---
