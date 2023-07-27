@@ -1,13 +1,21 @@
 [user]
 	email = TODO
 	name = TODO
+# https://go.dev/doc/faq#git_https
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [diff]
 	tool = kdiff3
 [merge]
 	tool = kdiff3
+	conflictstyle = diff3
 [core]
 	autocrlf = false
 	editor = vim
 	excludesFile = ~/.gitignore
 [message]
 	template = ~/.gitmessage
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
