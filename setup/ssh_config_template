@@ -1,8 +1,9 @@
 Host <host>.<tld>
   IdentitiesOnly yes
   IdentityFile ~/.ssh/<key>
-  # if password on ssh key
-  #UseKeychain yes
+  # MacOS: manage password for ssh key as per https://developer.apple.com/library/archive/technotes/tn2449/_index.html
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
   # https://xamarinhowto.com/generate-and-permanently-store-an-ssh-key-for-git-on-macos/
   # https://www.man7.org/linux/man-pages/man5/ssh_config.5.html
   AddKeysToAgent ask
