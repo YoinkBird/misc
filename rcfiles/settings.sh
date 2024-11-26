@@ -12,6 +12,11 @@ alias ggrep='ggrep --colour'
 
 # src: https://github.com/derailed/k9s , but also EDITOR is used by all the things
 # Kubectl edit command will use this env var.
+# NOTE: not sure wy, but this breaks ^a (not sure where, either zsh or macos. hasn't been issue on linux)
+# % export EDITOR=vim
+# % $SHELL
+# % word^A
+bindkey -e
 export EDITOR=vim
 # Should your editor deals with streamed vs on disk files differently, also set...
 export K9S_EDITOR=vim
