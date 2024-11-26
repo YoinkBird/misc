@@ -92,3 +92,6 @@ If reporting this issue please do so to (not Homebrew/brew or Homebrew/homebrew-
 
 # AWS CLI 
 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd
+
+# lazygit
+https://github.com/jesseduffield/lazygit#installation
