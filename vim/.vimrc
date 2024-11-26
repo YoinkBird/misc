@@ -34,6 +34,9 @@ set ffs=unix
 set nofixendofline
 
 " code recognition
+" NOTE: determine filetype with ':set filetype?'
+" determine current commentstring with ':verbose set commentstring?'
+" https://github.com/tpope/vim-commentary/issues/8
 syntax on
 "if &filetype == "*"
 "  setfiletype perl
@@ -41,7 +44,17 @@ if expand('%') == "*sqlite"
   setfiletype sql
 elseif expand('%') == "*hcl"
   setfiletype tf
+elseif expand('%:t') == "Jenkinsfile"
+" elseif expand('%') == "jenkinsfile"
+  setfiletype groovy
 endif
+" HACK: https://github.com/martinda/Jenkinsfile-vim-syntax/blob/master/ftdetect/Jenkinsfile.vim
+" " Jenkinsfile
+" autocmd BufRead,BufNewFile Jenkinsfile set ft=Jenkinsfile
+" autocmd BufRead,BufNewFile Jenkinsfile* setf Jenkinsfile
+" autocmd BufRead,BufNewFile *.jenkinsfile set ft=Jenkinsfile
+" autocmd BufRead,BufNewFile *.jenkinsfile setf Jenkinsfile
+" autocmd BufRead,BufNewFile *.Jenkinsfile setf Jenkinsfile
 filetype plugin indent on
 
 " markdown settings
@@ -99,6 +112,10 @@ endif
 " do not automatically read the file
 set noautoread
 
+" buffer
+set splitbelow
+set splitright
+
 " tips
 " scroll both windows
 " :windo set scrollbind
@@ -110,7 +127,7 @@ set noautoread
 " src: http://vim.wikia.com/wiki/Go_away_and_come_back via https://stackoverflow.com/a/31978241 
 "
 function! MakeSession()
-  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessiondir = $HOME . "/.config/vim/sessions" . getcwd()
   if (filewritable(b:sessiondir) != 2)
     exe 'silent !mkdir -p ' b:sessiondir
     redraw!
@@ -120,7 +137,7 @@ function! MakeSession()
 endfunction
 
 function! LoadSession()
-  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessiondir = $HOME . "/.config/vim/sessions" . getcwd()
   let b:sessionfile = b:sessiondir . "/session.vim"
   if (filereadable(b:sessionfile))
     exe 'source ' b:sessionfile
@@ -140,6 +157,11 @@ au VimLeave * :call MakeSession()
 " ---
 " Prerequisite:
 " https://github.com/tpope/vim-commentary
+" Excerpt: use Vim's built-in package support:
+" mkdir -p ~/.vim/pack/tpope/start
+" cd ~/.vim/pack/tpope/start
+" git clone https://tpope.io/vim/commentary.git
+" vim -u NONE -c "helptags commentary/doc" -c q
 " Usage:
 " Comment stuff out. Use
 "  gcc to comment out a line (takes a count)
