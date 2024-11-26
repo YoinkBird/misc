@@ -1,4 +1,4 @@
-alias tree="tree -C"
+alias tree="tree -C -I venv --gitignore"
 # for 'ls'
 export CLICOLOR=""
 ## see also https://geoff.greer.fm/lscolors/
