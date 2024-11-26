@@ -35,6 +35,22 @@ https://www.displaylink.com/downloads/macos
 
 WARNING - this section got messy, see the "WORKING ..." header for winning approach.
 Leaving old approaches in here as research stubs in case the relatively simple `brew install kde-mac/...; # follow-up` approach quits working.
+
+## IDK
+
+https://download.kde.org/stable/kdiff3/
+
+https://stackoverflow.com/questions/33722301/how-to-setup-kdiff3-in-mac-os
+
+`.gitconfig`:
+```
+[merge]
+        tool = kdiff3
+        # tool = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+
+[mergetool "kdiff3"]
+        cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 $BASE $LOCAL $REMOTE -o $MERGED
+
 ### kde prereq
 https://invent.kde.org/packaging/homebrew-kde
 ```
@@ -60,6 +76,16 @@ vim `which kdiff3`
 ```
 
 add the `bin/` where it's missing
+
+### broken now:
+```bash
+ninja:build stopped: subcommand failed.
+
+If reporting this issue please do so to (not Homebrew/brew or Homebrew/homebrew-core):
+  kde-mac/kde
+
+/opt/homebrew/Library/Homebrew/utils/github/api.rb:339:in `raise_error': Validation Failed: [{"message"=>"The listed users and repositor cannoched either because the resources do not exist or you do not have permission to view them.", "resource"=>"Search", "field"=>"q",=>"invalid"}] (GitHub::API::ValidationFailedError)
+```
 
 ## stale old version:
  http://kdiff3.sourceforge.net/
