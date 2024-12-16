@@ -1,6 +1,17 @@
 [user]
-	email = TODO
-	name = TODO
+       email = TODO
+       name = TODO
+# https://git-scm.com/docs/git-config#_includes
+[include]
+        path = ~/ws/.gitconfig
+; 1. TODO: create this path, file
+; [include "gitdir:~/ws/yoinkbird/"]
+;         path = ~/ws/yoinkbird/.gitconfig
+; 2. TODO: ... configure the email,user
+;[user]
+;      email = TODO
+;      name = TODO
+
 # https://go.dev/doc/faq#git_https
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
