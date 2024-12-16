@@ -2,16 +2,21 @@
 which brew
 rc=$?
 if [[ rc -ne 0 ]]; then
-# https://brew.sh/
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | less
-read -p "proceed? to continue, type 'yes'" answer
-if [[ "${answer}" != "yes" ]]; then
-  exit 0
+  # https://brew.sh/
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | less
+  read -p "proceed? to continue, type 'yes'" answer
+  if [[ "${answer}" != "yes" ]]; then
+    exit 0
+  fi
+  # don't type in password during install script
+  sudo bash -c 'whoami'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-# don't type in password during install script
-sudo bash -c 'whoami'
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# TODO: revisit whether not to use this one
+# https://homebrew-file.readthedocs.io/en/stable/getting_started.html
+# brew init
+
+# TODO: revisit brew bundle and how to manage out-of-band cmds such as updating PATH, configuring "$tool completion", etc
 
 set -x
 # all the good unix utils
