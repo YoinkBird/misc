@@ -5,16 +5,20 @@ set -euo pipefail
 
 # [default] cache/staging or [optional] amend previous commit
 commit_from="cache"
-# if [[ $# -gt 0 ]]; then
-for arg in "${@}"; do
-  if [[ "${arg}" == "--amend" ]]; then
-    commit_from="HEAD"
-    # shift;
-  fi
-done
-# fi
+if [[ $# -gt 0 ]]; then
+  for arg in "${@}"; do
+    if [[ "${arg}" == "--amend" ]]; then
+      commit_from="HEAD"
+      # shift;
+    fi
+  done
+fi
 
 function fn_git_path_stat(){
+  if [[ ${BASH_VERSINFO[0]} -lt 4 ]]; then
+    >&2 echo "ERROR: insufficient bash version; 'stat -c' will fail: $(stat -c 2>&1)"
+    exit 1
+  fi
   # get modification times of files for specific git commit use cases of "amend" or "cache"
   local commit_from="$1"; shift;
   if [[ "${commit_from}" == "HEAD" ]]; then
