@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-filename="${1:-"test"}"; shift;
-type="${1:-"rsa"}"; shift;
-comment="${1:-"key for testing purposes"}"; shift;
+purpose="${1:-"test"}"; shift;
+type="${1:-"ed25519"}"; shift;
+comment="${1:-"key for ${purpose}"}"; shift;
+comment="${1:-"${purpose}"}"; shift;
 set -ue
+filename="id_${type}_${purpose}"
+# hard-code; not sure how to determine dynamically
+set -x
+test -d ~/.ssh || mkdir ~/.ssh/
+ssh-keygen -f ~/.ssh/"${filename}" -t "${type}" -C "${comment}"
+set +x
 cat <<EOF
 # command:
-ssh-keygen -f ${filename} -t ${type} -C "${comment}"
 EOF
 cat <<'EOF'
 # oneliner to add pubkey to authorized keys:
