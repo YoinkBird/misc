@@ -11,6 +11,10 @@
 ;[user]
 ;      email = TODO
 ;      name = TODO
+;      [core]
+;      # https://stackoverflow.com/questions/31475646/using-git-ssh-command-in-git-for-windows/38474220#38474220
+;      sshCommand = ssh -i ~/.ssh/id_ed25519_nameOfKey -o "UseKeychain=yes"
+
 
 # https://go.dev/doc/faq#git_https
 [url "ssh://git@github.com/"]
