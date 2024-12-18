@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# enable touchid for sudo
+sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+# install brew , then brew install tools
 which brew
 rc=$?
 if [[ rc -ne 0 ]]; then
