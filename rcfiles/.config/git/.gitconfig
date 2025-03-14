@@ -21,6 +21,11 @@
 	insteadOf = https://github.com/
 [diff]
 	tool = kdiff3
+
+; https://stackoverflow.com/questions/33722301/how-to-setup-kdiff3-in-mac-os
+[difftool "kdiff3"]
+        path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+
 [merge]
 	tool = kdiff3
 	conflictstyle = diff3
