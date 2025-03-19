@@ -13,19 +13,9 @@
 * disable stupid notch hiding the icons in menu bar: https://apple.stackexchange.com/questions/444113/how-to-prevent-macbook-pro-notch-from-hiding-menu-bar-icons-from-the-right
 
 # install 
-## extra mouse buttons in firefox
-https://sensible-side-buttons.archagon.net/
 
-https://www.videolan.org/vlc/download-macosx.html
 
-## pretty video screensaver from appletv
-https://aerialscreensaver.github.io/
 
-## calendar app in statusbar
-https://www.mowglii.com/itsycal/
-
-## [ license ] great alt-tab switcher
-https://contexts.co/
 
 # [ license ] pops up whenever audio activates
 https://obdev.at/products/microsnitch/index.html
@@ -37,6 +27,7 @@ https://docs.docker.com/docker-for-mac/install/
 
 https://www.displaylink.com/downloads/macos
 
+<!--
 # kdiff3 GUI difftool
 
 WARNING - this section got messy, see the "WORKING ..." header for winning approach.
@@ -95,9 +86,20 @@ If reporting this issue please do so to (not Homebrew/brew or Homebrew/homebrew-
 
 ## stale old version:
  http://kdiff3.sourceforge.net/
+-->
 
+<!--
 # AWS CLI 
 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd
+-->
 
+<!--
 # lazygit
 https://github.com/jesseduffield/lazygit#installation
+-->
+
+
+<!--
+# deepl
+https://www.deepl.com/en/products/translator
+-->

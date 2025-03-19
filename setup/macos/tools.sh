@@ -5,7 +5,7 @@ sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_l
 which brew
 rc=$?
 if [[ rc -ne 0 ]]; then
-  # https://brew.sh/
+  # https://rew.sh/
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | less
   read -p "proceed? to continue, type 'yes'" answer
   if [[ "${answer}" != "yes" ]]; then
@@ -25,6 +25,7 @@ set -x
 # all the good unix utils
 brew install coreutils
 brew install findutils
+## pretty video screensaver from appletv
 # https://aerialscreensaver.github.io/installation.html
 brew install --cask aerial 
 
@@ -37,6 +38,13 @@ echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 brew install bat
 # cli for file structures
 brew install tree
+
+# difftool
+brew install kdiff3
+
+# git productivity
+# https://github.com/jesseduffield/lazygit#installation
+brew install jesseduffield/lazygit/lazygit
 
 # containerized lightweight k8s using rancher k3d
 brew install k3d
@@ -64,3 +72,22 @@ brew install ydiff
 
 # database
 brew install pgcli
+
+# misc
+brew install --cask \
+  itsycal \
+  clocker \
+  vlc \
+  contexts \
+  sensiblesidebuttons \
+  deepl
+
+## calendar app in statusbar
+# https://www.mowglii.com/itsycal/
+## extra mouse buttons in firefox
+# https://sensible-side-buttons.archagon.net/
+## misc
+# https://www.videolan.org/vlc/download-macosx.html
+## [ license ] great alt-tab switcher
+# https://contexts.co/
+
