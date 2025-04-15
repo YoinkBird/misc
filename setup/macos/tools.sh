@@ -42,8 +42,8 @@ brew install mas
 ################################################################################
 set -x
 # all the good unix utils
-brew install coreutils
-brew install findutils
+brew install coreutils \
+  findutils
 ## pretty video screensaver from appletv
 # https://aerialscreensaver.github.io/installation.html
 brew install --cask aerial 
@@ -59,9 +59,6 @@ brew install nvim tmux
 brew install bat
 # cli for file structures
 brew install tree
-
-# difftool
-brew install kdiff3
 
 # git productivity
 # https://github.com/jesseduffield/lazygit#installation
@@ -88,8 +85,7 @@ brew install --cask kap
 brew install sl
 
 # difftools
-brew install meld
-brew install ydiff
+brew install meld ydiff kdiff3
 
 # database
 brew install pgcli
