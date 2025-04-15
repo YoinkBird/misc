@@ -23,5 +23,7 @@ export EDITOR=vim
 # Should your editor deals with streamed vs on disk files differently, also set...
 export K9S_EDITOR=vim
 
-# go
-export PATH="${PATH}:$(go env GOPATH)/bin"
+# TODO: figure out best way to manage this
+# # go
+# go env GOPATH > /dev/null
+# export PATH="${PATH}:$(go env GOPATH)/bin"
