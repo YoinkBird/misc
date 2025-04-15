@@ -3,7 +3,8 @@
 # SYSTEM SETTINGS - MACOS
 ################################################################################
 # enable touchid for sudo
-sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+grep "^#auth" /etc/pam.d/sudo_local && \
+  sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 
 ################################################################################
 # SHELL SETTINGS - caveat: all in on ZSH at this point
