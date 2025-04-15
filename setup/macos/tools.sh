@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 ################################################################################
-# SYSTEM SETTINGS
+# SYSTEM SETTINGS - MACOS
 ################################################################################
 # enable touchid for sudo
 sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+################################################################################
+# SHELL SETTINGS - caveat: all in on ZSH at this point
+################################################################################
+# shell agnostic, specific to my setup
+test -e "$HOME/.config/shell_settings_agnostic.sh" && \
+  grep 'shell_settings_agnostic.sh' ~/.zshrc || \
+  echo '. $HOME/.config/shell_settings_agnostic.sh' >> ~/.zshrc
 
 # zsh
 # enable shell completion
