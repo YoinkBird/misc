@@ -8,10 +8,14 @@ sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_l
 ################################################################################
 # SHELL SETTINGS - caveat: all in on ZSH at this point
 ################################################################################
-# shell agnostic, specific to my setup
+# shell agnostic, specific to this repo's setup config management
+#   (i.e. setup/cp_rcfiles.sh configures the shell_settings_agnostic.sh)
+echo "# INFO: configuring shell-agnostic settings"
 test -e "$HOME/.config/shell_settings_agnostic.sh" && \
+  $SHELL -ex ~/.config/shell_settings_agnostic.sh && \
   grep 'shell_settings_agnostic.sh' ~/.zshrc || \
   echo '. $HOME/.config/shell_settings_agnostic.sh' >> ~/.zshrc
+echo "# DONE: configuring shell-agnostic settings"
 
 # zsh
 # enable shell completion
