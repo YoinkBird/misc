@@ -105,7 +105,6 @@ brew install pgcli
 # https://contexts.co/
 brew install --cask \
   itsycal \
-  clocker \
   vlc \
   contexts \
   sensiblesidebuttons \
@@ -116,3 +115,7 @@ brew install --cask \
 # https://github.com/mas-cli/mas
 # where 'mas' itself is installed via 'brew'
 ################################################################################
+
+# Clocker:
+# mas info 1056643111: Clocker 24.03 [Free], By: Abhishek Banthia, From: https://apps.apple.com/us/app/clocker/id1056643111?mt=12&uo=4
+mas install 1056643111 || mas upgrade 1056643111
