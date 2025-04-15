@@ -10,6 +10,9 @@ for key in $(ls ~/.ssh/id_* | grep -v '\.pub$'); do
   # TODO: ascertain why adding one key prints out "Identidy added" for mulitple other keys.
   # + it appears that running the following command even without passing in a key would print that message,
   # + so it's possible that the command is simply printing out each already configured key
+  # NOTES:
+  # Error Sig: "No identity found in the keychain."
+  #  Resolution: Use key once
   ssh-add --apple-use-keychain --apple-load-keychain "${key}"
 done
 trap - INT
