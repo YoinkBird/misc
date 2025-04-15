@@ -75,15 +75,7 @@ brew install ydiff
 # database
 brew install pgcli
 
-# misc
-brew install --cask \
-  itsycal \
-  clocker \
-  vlc \
-  contexts \
-  sensiblesidebuttons \
-  deepl
-
+# miscellaneous:
 ## calendar app in statusbar
 # https://www.mowglii.com/itsycal/
 ## extra mouse buttons in firefox
@@ -92,4 +84,11 @@ brew install --cask \
 # https://www.videolan.org/vlc/download-macosx.html
 ## [ license ] great alt-tab switcher
 # https://contexts.co/
+brew install --cask \
+  itsycal \
+  clocker \
+  vlc \
+  contexts \
+  sensiblesidebuttons \
+  deepl
 
