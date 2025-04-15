@@ -1,3 +1,5 @@
+# tool-specific settings
+# i.e. shell agnostic, not specific to bash,zsh,etc
 alias tree="tree -C -I venv --gitignore"
 # for 'ls'
 export CLICOLOR=""
