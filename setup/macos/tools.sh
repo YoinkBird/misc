@@ -5,6 +5,11 @@
 # enable touchid for sudo
 sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 
+# zsh
+# enable shell completion
+grep 'autoload -U compinit; compinit' ~/.zshrc || \
+  echo 'autoload -U compinit; compinit' >> ~/.zshrc
+
 ################################################################################
 # INSTALL installer: brew
 ################################################################################
@@ -51,7 +56,8 @@ brew install --cask aerial
 brew install openoffice libreoffice
 
 brew install openjdk
-echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+grep 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' ~/.zshrc || \
+  echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 
 brew install nvim tmux
 
@@ -66,11 +72,13 @@ brew install jesseduffield/lazygit/lazygit
 
 # containerized lightweight k8s using rancher k3d
 brew install k3d
-k3d completion "$(basename $SHELL)" > ~/.zshrc_completion_zshrc
+# verify completion script
+ls "${fpath[1]}/_k3d" || k3d completion $SHELL
 
 # for k8s
 brew install helm
-helm completion "$(basename $SHELL)" > ~/.zshrc_completion_helm
+# verify completion script
+ls "${fpath[1]}/_helm" || helm completion $SHELL
 
 # cli for json and yaml
 brew install jq yq
