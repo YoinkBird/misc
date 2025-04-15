@@ -34,6 +34,8 @@ brew install openoffice libreoffice
 brew install openjdk
 echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 
+brew install nvim
+
 # enhanced cat
 brew install bat
 # cli for file structures
