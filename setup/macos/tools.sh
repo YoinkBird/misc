@@ -73,12 +73,14 @@ brew install jesseduffield/lazygit/lazygit
 # containerized lightweight k8s using rancher k3d
 brew install k3d
 # verify completion script
-ls "${fpath[1]}/_k3d" || k3d completion $SHELL
+test "$(basename $SHELL)" = "zsh" && \
+  ls "${fpath[1]}/_k3d" || k3d completion
 
 # for k8s
 brew install helm
 # verify completion script
-ls "${fpath[1]}/_helm" || helm completion $SHELL
+test "$(basename $SHELL)" = "zsh" && \
+  ls "${fpath[1]}/_helm" || helm completion zsh
 
 # cli for json and yaml
 brew install jq yq
