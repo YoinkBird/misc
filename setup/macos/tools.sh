@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
+################################################################################
+# SYSTEM SETTINGS
+################################################################################
 # enable touchid for sudo
 sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
-# install brew , then brew install tools
+
+################################################################################
+# INSTALL installer: brew
+################################################################################
 which brew
 rc=$?
 if [[ rc -ne 0 ]]; then
@@ -21,6 +27,19 @@ fi
 
 # TODO: revisit brew bundle and how to manage out-of-band cmds such as updating PATH, configuring "$tool completion", etc
 
+################################################################################
+# INSTALL installer: mas
+################################################################################
+# CLI for App Store installations
+# https://github.com/mas-cli/mas
+# see also https://apple.stackexchange.com/a/72148
+brew install mas
+# NOTE: not 'softwareupdate'
+# https://apple.stackexchange.com/a/72152
+
+################################################################################
+# INSTALL via brew
+################################################################################
 set -x
 # all the good unix utils
 brew install coreutils
@@ -92,3 +111,8 @@ brew install --cask \
   sensiblesidebuttons \
   deepl
 
+################################################################################
+# INSTALL via mas
+# https://github.com/mas-cli/mas
+# where 'mas' itself is installed via 'brew'
+################################################################################
