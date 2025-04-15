@@ -113,6 +113,10 @@ brew install meld ydiff kdiff3
 # database
 brew install pgcli
 
+# programming languages
+# note: have seen this formula be too opinionated and set in-sane defaults, keep that in mind
+brew install go
+
 # miscellaneous:
 ## calendar app in statusbar
 # https://www.mowglii.com/itsycal/
