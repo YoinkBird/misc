@@ -56,9 +56,8 @@ brew install --cask aerial
 
 brew install openoffice libreoffice
 
+# NOTE: PATH settings moved to .config/.zshrc.d
 brew install openjdk
-grep 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' ~/.zshrc || \
-  echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 
 brew install nvim tmux
 
