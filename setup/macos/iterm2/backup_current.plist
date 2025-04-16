@@ -1,7 +1,7 @@
 {
     "Default Bookmark Guid" = "CF003E5E-088E-4AF9-874F-AA09313B4EE0";
     HapticFeedbackForEsc = 0;
-    "NSWindow Frame iTerm Window 0" = "3448 634 585 458 1728 -323 3440 1415 ";
+    "NSWindow Frame iTerm Window 0" = "3448 -323 1720 1415 1728 -323 3440 1415 ";
     "New Bookmarks" =     (
                 {
             "ASCII Anti Aliased" = 1;
@@ -606,7 +606,7 @@
             "Non Ascii Font" = "Monaco 12";
             "Non-ASCII Anti Aliased" = 1;
             "Normal Font" = "Monaco 12";
-            "Option Key Sends" = 2;
+            "Option Key Sends" = 0;
             "Prompt Before Closing 2" = 0;
             "Right Option Key Sends" = 0;
             Rows = 25;
@@ -682,8 +682,9 @@
     );
     "NoSyncFrame_SharedPreferences" =     {
         screenFrame = "{{1728, -323}, {3440, 1440}}";
-        topLeft = "{3055, 806}";
+        topLeft = "{3656, 896}";
     };
+    NoSyncIgnoreSystemWindowRestoration = 1;
     NoSyncRecordedVariables =     {
         0 =         (
                         {
