@@ -24,6 +24,6 @@ export EDITOR=vim
 export K9S_EDITOR=vim
 
 # go - set gopath if go installed
-go env && \
+go env > /dev/null && \
   export PATH="${PATH}:$(go env GOPATH)/bin"
 # REMINDER: ignore any tutorials which set GOPATH, deprecated since 1.11 with go mod, see e.g. https://stackoverflow.com/a/53026674
