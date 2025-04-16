@@ -46,3 +46,7 @@ popd > /dev/null
 ################################################################################
 # END Powerlevel10k
 ################################################################################
+
+# MUST be at end
+test -e "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" && \
+  source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
