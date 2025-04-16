@@ -1,7 +1,18 @@
 {
+    AppleAntiAliasingThreshold = 1;
+    ApplePressAndHoldEnabled = 0;
+    AppleScrollAnimationEnabled = 0;
+    AppleSmoothFixedFontsSizeThreshold = 1;
+    AppleWindowTabbingMode = manual;
     "Default Bookmark Guid" = "CF003E5E-088E-4AF9-874F-AA09313B4EE0";
     HapticFeedbackForEsc = 0;
-    "NSWindow Frame iTerm Window 0" = "3448 -323 1720 1415 1728 -323 3440 1415 ";
+    HotkeyMigratedFromSingleToMulti = 1;
+    NSOverlayScrollersFallBackForAccessoryViews = 0;
+    NSQuotedKeystrokeBinding = "";
+    NSRepeatCountBinding = "";
+    NSScrollAnimationEnabled = 0;
+    NSScrollViewShouldScrollUnderTitlebar = 0;
+    "NSWindow Frame iTerm Window 0" = "3448 957 570 458 1728 0 3440 1415 ";
     "New Bookmarks" =     (
                 {
             "ASCII Anti Aliased" = 1;
@@ -680,11 +691,19 @@
             "Working Directory" = "/Users/yobo";
         }
     );
+    NoSyncAllAppVersions =     (
+        "3.5.13"
+    );
     "NoSyncFrame_SharedPreferences" =     {
         screenFrame = "{{1728, -323}, {3440, 1440}}";
         topLeft = "{3656, 896}";
     };
     NoSyncIgnoreSystemWindowRestoration = 1;
+    NoSyncInstallationId = "2528BBAE-3423-46F2-8BD2-02635E98EFB9";
+    NoSyncLastOSVersion = "Version 15.4 (Build 24E248)";
+    NoSyncLastSystemPythonVersionRequirement = "1.17";
+    NoSyncLaunchExperienceControllerRunCount = 1;
+    NoSyncNextAnnoyanceTime = "766664954.6669641";
     NoSyncRecordedVariables =     {
         0 =         (
                         {
@@ -1217,6 +1236,14 @@
             }
         );
     };
+    NoSyncRemoveDeprecatedKeyMappings = 1;
+    NoSyncRestoreWindowsCount = 0;
+    NoSyncTipOfTheDayEligibilityBeganTime = "766492154.666822";
+    NoSyncWindowRestoresWorkspaceAtLaunch = 0;
+    SUFeedAlternateAppNameKey = iTerm;
+    SUFeedURL = "https://iterm2.com/appcasts/final_modern.xml?shard=42";
+    SUHasLaunchedBefore = 1;
     SoundForEsc = 0;
     VisualIndicatorForEsc = 0;
+    "iTerm Version" = "3.5.13";
 }
