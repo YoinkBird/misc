@@ -9,14 +9,7 @@ grep "^#auth" /etc/pam.d/sudo_local && \
 ################################################################################
 # SHELL SETTINGS - caveat: all in on ZSH at this point
 ################################################################################
-# shell agnostic, specific to this repo's setup config management
-#   (i.e. setup/cp_rcfiles.sh configures the shell_settings_agnostic.sh)
-echo "# INFO: configuring shell-agnostic settings"
-test -e "$HOME/.config/shell_settings_agnostic.sh" && \
-  $SHELL -ex ~/.config/shell_settings_agnostic.sh && \
-  grep 'shell_settings_agnostic.sh' ~/.zshrc || \
-  echo '. $HOME/.config/shell_settings_agnostic.sh' >> ~/.zshrc
-echo "# DONE: configuring shell-agnostic settings"
+# opinionated: chuck any settings into this repo's .config/zshrc.d/ dir, which the ~/.zshrc will read
 
 ################################################################################
 # INSTALL installer: brew
