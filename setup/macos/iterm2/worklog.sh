@@ -55,5 +55,7 @@ sockets
 └── version.txt
 
 
+Set:
+'left ⌥ key acts as +ESC'
 
 EOM

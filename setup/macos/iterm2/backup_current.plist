@@ -12,6 +12,14 @@
     NSRepeatCountBinding = "";
     NSScrollAnimationEnabled = 0;
     NSScrollViewShouldScrollUnderTitlebar = 0;
+    "NSSplitView Subview Frames NSColorPanelSplitView" =     (
+        "0.000000, 0.000000, 224.000000, 258.000000, NO, NO",
+        "0.000000, 259.000000, 224.000000, 48.000000, NO, NO"
+    );
+    "NSToolbar Configuration com.apple.NSColorPanel" =     {
+        "TB Is Shown" = 1;
+    };
+    "NSWindow Frame NSColorPanel" = "0 81 224 278 0 0 1728 1079 ";
     "NSWindow Frame iTerm Window 0" = "3448 957 570 458 1728 0 3440 1415 ";
     "New Bookmarks" =     (
                 {
@@ -617,7 +625,7 @@
             "Non Ascii Font" = "Monaco 12";
             "Non-ASCII Anti Aliased" = 1;
             "Normal Font" = "Monaco 12";
-            "Option Key Sends" = 0;
+            "Option Key Sends" = 2;
             "Prompt Before Closing 2" = 0;
             "Right Option Key Sends" = 0;
             Rows = 25;
@@ -695,8 +703,8 @@
         "3.5.13"
     );
     "NoSyncFrame_SharedPreferences" =     {
-        screenFrame = "{{1728, -323}, {3440, 1440}}";
-        topLeft = "{3656, 896}";
+        screenFrame = "{{1728, 0}, {3440, 1440}}";
+        topLeft = "{3633, 1034}";
     };
     NoSyncIgnoreSystemWindowRestoration = 1;
     NoSyncInstallationId = "2528BBAE-3423-46F2-8BD2-02635E98EFB9";
