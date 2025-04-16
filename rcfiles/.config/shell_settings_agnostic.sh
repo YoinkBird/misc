@@ -1,6 +1,6 @@
 # tool-specific settings
 # i.e. shell agnostic, not specific to bash,zsh,etc
-alias tree="tree -C -I venv --gitignore"
+alias tree="tree -C -I venv -I .git --gitignore"
 # for 'ls'
 export CLICOLOR=""
 ## see also https://geoff.greer.fm/lscolors/
