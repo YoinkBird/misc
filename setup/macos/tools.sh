@@ -60,6 +60,8 @@ brew install openoffice libreoffice
 brew install openjdk
 
 brew install nvim tmux
+# https://vscodium.com/
+brew install vscodium
 
 # enhanced cat
 brew install bat
