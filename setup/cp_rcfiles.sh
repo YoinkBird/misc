@@ -29,6 +29,7 @@ echo "# PROCESSING:
 ${filelist[@]}"
 # need to cd in order to examine file types
 cd "${rcdir}"
+IFS=$'\n'
 for file in ${filelist[@]}; do
   echo "#---------"
   # note that 'file' can also be a dir; maybe worth refactoring the name in future
@@ -47,7 +48,7 @@ for file in ${filelist[@]}; do
     if [ ${overwrite} -eq 1 ] ; then
       lnopt="${lnopt}f"
     fi
-    >&2 $dbecho ln "${lnopt}" ${rcdir}/${file} ~/${file}
+    >&2 $dbecho ln "${lnopt}" ${rcdir}/${file} ~/"${file}"
     test -z $dbecho || continue
   else
     >&2 echo "# CHECKING"
