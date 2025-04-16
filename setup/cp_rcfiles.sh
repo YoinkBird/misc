@@ -52,6 +52,11 @@ for file in ${filelist[@]}; do
     test -z $dbecho || continue
   else
     >&2 echo "# CHECKING"
+    if [[ "${file}" =~ ^"Library" ]]; then
+      # exception: skip config dirs of which only a small subset of files are managed by this repo
+      >&2 echo "# ... skipping dirs within ~/Library"
+      continue
+    fi
     set -x
     diff ${diffopts} ${rcdir}/${file} ~/${file} || >&2 echo "# WARN: did not update ~/${file}"
     set +x
