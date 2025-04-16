@@ -18,11 +18,6 @@ test -e "$HOME/.config/shell_settings_agnostic.sh" && \
   echo '. $HOME/.config/shell_settings_agnostic.sh' >> ~/.zshrc
 echo "# DONE: configuring shell-agnostic settings"
 
-# zsh
-# enable shell completion
-grep 'autoload -U compinit; compinit' ~/.zshrc || \
-  echo 'autoload -U compinit; compinit' >> ~/.zshrc
-
 ################################################################################
 # INSTALL installer: brew
 ################################################################################
