@@ -1,25 +1,7 @@
 {
-    AppleAntiAliasingThreshold = 1;
-    ApplePressAndHoldEnabled = 0;
-    AppleScrollAnimationEnabled = 0;
-    AppleSmoothFixedFontsSizeThreshold = 1;
-    AppleWindowTabbingMode = manual;
     "Default Bookmark Guid" = "CF003E5E-088E-4AF9-874F-AA09313B4EE0";
     HapticFeedbackForEsc = 0;
-    HotkeyMigratedFromSingleToMulti = 1;
-    NSOverlayScrollersFallBackForAccessoryViews = 0;
-    NSQuotedKeystrokeBinding = "";
-    NSRepeatCountBinding = "";
-    NSScrollAnimationEnabled = 0;
-    NSScrollViewShouldScrollUnderTitlebar = 0;
-    "NSSplitView Subview Frames NSColorPanelSplitView" =     (
-        "0.000000, 0.000000, 224.000000, 258.000000, NO, NO",
-        "0.000000, 259.000000, 224.000000, 48.000000, NO, NO"
-    );
-    "NSToolbar Configuration com.apple.NSColorPanel" =     {
-        "TB Is Shown" = 1;
-    };
-    "NSWindow Frame NSColorPanel" = "0 81 224 278 0 0 1728 1079 ";
+    "NSWindow Frame iTerm Window 0" = "3448 634 585 458 1728 -323 3440 1415 ";
     "New Bookmarks" =     (
                 {
             "ASCII Anti Aliased" = 1;
@@ -698,19 +680,10 @@
             "Working Directory" = "/Users/yobo";
         }
     );
-    NoSyncAllAppVersions =     (
-        "3.5.13"
-    );
     "NoSyncFrame_SharedPreferences" =     {
-        screenFrame = "{{2056, 212}, {3440, 1440}}";
-        topLeft = "{2333, 1270}";
+        screenFrame = "{{1728, -323}, {3440, 1440}}";
+        topLeft = "{3055, 806}";
     };
-    NoSyncIgnoreSystemWindowRestoration = 1;
-    NoSyncInstallationId = "8AA457C4-515B-4404-95C5-083456D26FA6";
-    NoSyncLastOSVersion = "Version 15.4 (Build 24E248)";
-    NoSyncLastSystemPythonVersionRequirement = "1.17";
-    NoSyncLaunchExperienceControllerRunCount = 1;
-    NoSyncNextAnnoyanceTime = "766494938.760047";
     NoSyncRecordedVariables =     {
         0 =         (
                         {
@@ -1019,6 +992,11 @@
             },
                         {
                 isTerminal = 1;
+                name = "currentTab.window";
+                nonterminalContext = 0;
+            },
+                        {
+                isTerminal = 1;
                 name = id;
                 nonterminalContext = 0;
             },
@@ -1156,6 +1134,11 @@
             },
                         {
                 isTerminal = 1;
+                name = window;
+                nonterminalContext = 0;
+            },
+                        {
+                isTerminal = 1;
                 name = id;
                 nonterminalContext = 0;
             },
@@ -1233,38 +1216,6 @@
             }
         );
     };
-    NoSyncRemoveDeprecatedKeyMappings = 1;
-    NoSyncRestoreWindowsCount = 0;
-    NoSyncSuppressPromptToEnableResizing = 1;
-    NoSyncTipOfTheDayEligibilityBeganTime = "766322138.759873";
-    NoSyncWindowRestoresWorkspaceAtLaunch = 0;
-    PointerActions =     {
-        "Button,1,1,," =         {
-            Action = kContextMenuPointerAction;
-        };
-        "Button,2,1,," =         {
-            Action = kPasteFromClipboardPointerAction;
-        };
-        "Gesture,ThreeFingerSwipeDown,," =         {
-            Action = kPrevWindowPointerAction;
-        };
-        "Gesture,ThreeFingerSwipeLeft,," =         {
-            Action = kPrevTabPointerAction;
-        };
-        "Gesture,ThreeFingerSwipeRight,," =         {
-            Action = kNextTabPointerAction;
-        };
-        "Gesture,ThreeFingerSwipeUp,," =         {
-            Action = kNextWindowPointerAction;
-        };
-    };
-    SUFeedAlternateAppNameKey = iTerm;
-    SUFeedURL = "https://iterm2.com/appcasts/final_modern.xml?shard=96";
-    SUHasLaunchedBefore = 1;
     SoundForEsc = 0;
-    TabStyleWithAutomaticOption = 0;
     VisualIndicatorForEsc = 0;
-    WindowNumber = 0;
-    "findMode_iTerm" = 0;
-    "iTerm Version" = "3.5.13";
 }
