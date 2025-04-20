@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -x
+# -R, --dereference-recursive
+#       Read all files under each directory, recursively.  Follow all symbolic links, unlike -r.
+exec grep --color -Rnsi --exclude-dir=".git" "${@}"

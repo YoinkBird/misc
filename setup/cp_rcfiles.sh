@@ -18,15 +18,18 @@ fi
 
 scriptdir=$(dirname $0)
 repodir=$(dirname ${scriptdir})
-rcdir=$(realpath ${repodir}/rcfiles)
+rcdir_relpath="rcfiles"
+rcdir=$(realpath ${repodir}/${rcdir_relpath})
+bindir_relpath="utils/bin"
+bindir="$(readlink -f "${repodir}/${bindir_relpath}")"
 
 # default to 'find' unless 'gfind' found (on MacOS)
 find_util="$(which gfind > /dev/null 2>&1 && echo "gfind" || echo "find")"
 filelist="$(${find_util} ${rcdir} -printf "%P\n")"
 # add color to diff if present
 diffopts="$(diff --help | grep '\--color\b' > /dev/null 2>&1 && echo "--color=always" || echo "")"
-echo "# PROCESSING:
-${filelist[@]}"
+echo "# INFO: configure ${rcdir_relpath}"
+echo "# PROCESSING: ${filelist[@]}"
 # need to cd in order to examine file types
 cd "${rcdir}"
 IFS=$'\n'
@@ -64,5 +67,7 @@ for file in ${filelist[@]}; do
   # quick check; note that 'test -e' also verifies whether a symlink is broken, hence the diagnostic 'ls -ld' in the ERROR msg
   (test -e ~/${file} && ls -ltd ~/${file}) || >&2 echo "# ERROR: did not configure ~/${file}, examine: $(ls -ld ~/${file})"
 done
+echo "# INFO: configure ${bindir_relpath}"
+>&2 $dbecho ln -s "${bindir}" "${HOME}/bin"
 echo "# DONE"
 exit 0
