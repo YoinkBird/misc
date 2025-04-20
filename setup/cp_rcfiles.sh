@@ -23,6 +23,9 @@ rcdir=$(realpath ${repodir}/${rcdir_relpath})
 bindir_relpath="utils/bin"
 bindir="$(readlink -f "${repodir}/${bindir_relpath}")"
 
+################################################################################
+# Configure RCFILES
+################################################################################
 # default to 'find' unless 'gfind' found (on MacOS)
 find_util="$(which gfind > /dev/null 2>&1 && echo "gfind" || echo "find")"
 filelist="$(${find_util} ${rcdir} -printf "%P\n")"
@@ -67,7 +70,17 @@ for file in ${filelist[@]}; do
   # quick check; note that 'test -e' also verifies whether a symlink is broken, hence the diagnostic 'ls -ld' in the ERROR msg
   (test -e ~/${file} && ls -ltd ~/${file}) || >&2 echo "# ERROR: did not configure ~/${file}, examine: $(ls -ld ~/${file})"
 done
+
+################################################################################
+# Configure ~/bin/
+################################################################################
 echo "# INFO: configure ${bindir_relpath}"
->&2 $dbecho ln -s "${bindir}" "${HOME}/bin"
+if [[ ! -L "${HOME}/bin" ]]; then
+  >&2 $dbecho ln -sv "${bindir}" "${HOME}/bin"
+fi
+ls -ltd "${HOME}/bin"
+
+echo "################################################################################"
 echo "# DONE"
+echo "################################################################################"
 exit 0
