@@ -5,6 +5,11 @@
     // vscode configure: https://stackoverflow.com/questions/41574169/how-do-i-use-the-meslo-font-for-visual-studio-code
     // source for font: powerlevel10k https://github.com/romkatv/powerlevel10k
     "terminal.integrated.fontFamily": "'MesloLGS NF'",
-    
-    
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "window.autoDetectColorScheme": true,
+    "editor.formatOnSave": true,
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "on",
 }

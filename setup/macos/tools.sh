@@ -44,6 +44,17 @@ brew install mas
 # https://apple.stackexchange.com/a/72152
 
 ################################################################################
+# INSTALL installer: asdf
+################################################################################
+brew install asdf
+################################################################################
+# INSTALL via asdf
+################################################################################
+asdf plugin add kubectl
+asdf install kubectl latest
+asdf set -u kubectl latest
+
+################################################################################
 # INSTALL via brew
 ################################################################################
 set -x
@@ -84,6 +95,13 @@ brew install helm
 test "$(basename $SHELL)" = "zsh" && \
   ls "${fpath[1]}/_helm" || helm completion zsh
 
+brew install k9s openlens
+# docker replacement, see https://dev.to/elliotalexander/how-to-use-docker-without-docker-desktop-on-macos-217m
+echo "CAVEAT: skipping colima"
+# brew install colima
+# may need to
+# sudo ln ~/.colima/default/docker.sock /var/run && ls /var/run/docker.sock
+
 # cli for json and yaml
 brew install jq yq
 
@@ -105,6 +123,8 @@ brew install pgcli
 # programming languages
 # note: have seen this formula be too opinionated and set in-sane defaults, keep that in mind
 brew install go
+go install golang.org/x/tools/cmd/goimports@latest
+
 
 # miscellaneous:
 ## calendar app in statusbar
