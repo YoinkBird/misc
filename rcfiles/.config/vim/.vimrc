@@ -32,10 +32,6 @@ set indentkeys-=0#
 set ffs=unix
 " stop touching things. stopit. stopstopstop:  When writing a file and this option is on, <EOL> at the end of file will be restored if missing.
 set nofixendofline
-if exists('g:vscode')
-  # src: https://vi.stackexchange.com/questions/28433/how-to-exit-vimscript
-  finish
-endif
 
 " code recognition
 " NOTE: determine filetype with ':set filetype?'
