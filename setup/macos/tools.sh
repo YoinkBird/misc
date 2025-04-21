@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+set -euo pipefail
 ################################################################################
 # SYSTEM SETTINGS - MACOS
 ################################################################################
 # enable touchid for sudo
 grep "^#auth" /etc/pam.d/sudo_local && \
+  sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+test -e /etc/pam.d/sudo_local || \
   sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 
 ################################################################################
@@ -86,14 +89,20 @@ brew install jesseduffield/lazygit/lazygit
 # containerized lightweight k8s using rancher k3d
 brew install k3d
 # verify completion script
-test "$(basename $SHELL)" = "zsh" && \
-  ls "${fpath[1]}/_k3d" || k3d completion
+set +e
+echo "WARN: unsure how to make this reliable"
+# test "$(basename $SHELL)" = "zsh" && \
+  # ls "${fpath[1]}/_k3d" || k3d completion
+set -e
 
 # for k8s
 brew install helm
 # verify completion script
-test "$(basename $SHELL)" = "zsh" && \
-  ls "${fpath[1]}/_helm" || helm completion zsh
+set +e
+echo "WARN: unsure how to make this reliable"
+# test "$(basename $SHELL)" = "zsh" && \
+#   ls "${fpath[1]}/_helm" || helm completion zsh
+set -e
 
 brew install k9s openlens
 # docker replacement, see https://dev.to/elliotalexander/how-to-use-docker-without-docker-desktop-on-macos-217m
@@ -151,3 +160,9 @@ brew install --cask \
 # Clocker:
 # mas info 1056643111: Clocker 24.03 [Free], By: Abhishek Banthia, From: https://apps.apple.com/us/app/clocker/id1056643111?mt=12&uo=4
 mas install 1056643111 || mas upgrade 1056643111
+if [[ $? -ne 0 ]]; then
+  echo "E: cannot install via app store"
+fi
+
+echo "DONE"
+exit 0
