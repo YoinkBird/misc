@@ -14,7 +14,11 @@ fi
 ################################################################################
 # general zsh settings
 ################################################################################
-autoload -U compinit; compinit
+# initialise completions with ZSH's compinit (src: https://asdf-vm.com/guide/getting-started.html#_2-configure-asdf)
+# from 'man zshbuiltins':
+# -U : alias expansion is suppressed when the function is loaded
+# -z : mark the function to be autoloaded using the zsh style
+autoload -Uz compinit && compinit
 
 ################################################################################
 # Source other config files
@@ -23,11 +27,15 @@ autoload -U compinit; compinit
 #  .zshrc and .config/shell_settings_agnostic.sh
 ################################################################################
 # DEV NOTE: 
+# DEV NOTE: disabling, but keeping for reference for the zsh syntax
 # DEV: equ to BASH_SOURCE: https://stackoverflow.com/questions/9901210/bash-source0-equivalent-in-zsh
 # DEV: > Here % indicates prompt expansion on the value,
 # DEV: > %N indicates "The name of the script, sourced file, or shell function that zsh is currently executing,
-pushd "$(dirname "$(readlink -f "${(%):-%N}")")" > /dev/null
+# pushd "$(dirname "$(readlink -f "${(%):-%N}")")" > /dev/null
+# popd > /dev/null
 
+# DECISION: source from system-configured dir, even though it _mostly_ symlinks back to the config-as-code repo. Rationale: need to _not_ track some of the config files, and the easiest way to do that is to simply not have them in the repo in the first place. Plus, this "feels" better - setting up the configs from the system-path instead of the repo-path, even if most of them are just links back to the repo-path
+pushd $HOME > /dev/null
 # opinionated: source this shell-agnostic settings file
 . .config/shell_settings_agnostic.sh
 
