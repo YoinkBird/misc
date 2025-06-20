@@ -5,6 +5,7 @@
     AppleSmoothFixedFontsSizeThreshold = 1;
     AppleWindowTabbingMode = manual;
     "Default Bookmark Guid" = "CF003E5E-088E-4AF9-874F-AA09313B4EE0";
+    DisableWindowSizeSnap = 1;
     HapticFeedbackForEsc = 0;
     HotkeyMigratedFromSingleToMulti = 1;
     NSOverlayScrollersFallBackForAccessoryViews = 0;
@@ -444,6 +445,7 @@
             "Default Bookmark" = No;
             Description = Default;
             "Disable Window Resizing" = 1;
+            "Draw Powerline Glyphs" = 1;
             "Faint Text Alpha (Dark)" = "0.5";
             "Faint Text Alpha (Light)" = "0.5";
             "Flashing Bell" = 0;
@@ -618,13 +620,15 @@
                 "Green Component" = "0.9860088229179382";
                 "Red Component" = "0.9969714283943176";
             };
+            "Minimum Contrast" = 0;
             "Minimum Contrast (Dark)" = 0;
             "Minimum Contrast (Light)" = 0;
             "Mouse Reporting" = 1;
             Name = Default;
             "Non Ascii Font" = "Monaco 12";
             "Non-ASCII Anti Aliased" = 1;
-            "Normal Font" = "Monaco 12";
+            "Normal Font" = "MesloLGS-NF-Regular 13";
+            "Only The Default BG Color Uses Transparency" = 1;
             "Option Key Sends" = 2;
             "Prompt Before Closing 2" = 0;
             "Right Option Key Sends" = 0;
@@ -1097,7 +1101,7 @@
         2 =         (
                         {
                 isTerminal = 1;
-                name = currentSession;
+                name = "currentSession.bellCount";
                 nonterminalContext = 0;
             },
                         {
@@ -1246,12 +1250,30 @@
     };
     NoSyncRemoveDeprecatedKeyMappings = 1;
     NoSyncRestoreWindowsCount = 0;
+    NoSyncSuppressPromptToEnableResizing = 1;
     NoSyncTipOfTheDayEligibilityBeganTime = "766492154.666822";
+    NoSyncTipsToNotShow =     (
+        0006,
+        0003,
+        0000,
+        0007,
+        0004,
+        0001,
+        000,
+        0008,
+        0005,
+        0002,
+        0009
+    );
     NoSyncWindowRestoresWorkspaceAtLaunch = 0;
+    PreventEscapeSequenceFromClearingHistory = 0;
+    "Print In Black And White" = 1;
+    SUEnableAutomaticChecks = 1;
     SUFeedAlternateAppNameKey = iTerm;
     SUFeedURL = "https://iterm2.com/appcasts/final_modern.xml?shard=42";
     SUHasLaunchedBefore = 1;
     SoundForEsc = 0;
     VisualIndicatorForEsc = 0;
-    "iTerm Version" = "3.5.13";
+    "findMode_iTerm" = 0;
+    "iTerm Version" = "3.5.14";
 }
