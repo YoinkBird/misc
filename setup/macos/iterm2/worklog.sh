@@ -14,7 +14,9 @@ plutil -convert xml1 -o backup_current.xml backup_current.plist
 # man plutil
 # Specifying - as an input file reads from stdin.
 # Specifying - as the path outputs to stdout.
-defaults read com.googlecode.iterm2 | plutil -convert json -o - - |jq
+set -e
+# UPDATE: cannot use; some of the values not valid: "Old-style plist parser: missing semicolon in dictionary on line 13."
+# defaults read com.googlecode.iterm2 | plutil -convert json -o - - |jq
 git diff
 
 
@@ -55,6 +57,9 @@ sockets
 │   └── restorable-state.sqlite-wal
 ├── Scripts
 └── version.txt
+
+# 
+% rm -r ~/"Library/Application Support/iTerm2"
 
 
 Set:
