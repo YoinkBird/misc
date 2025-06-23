@@ -66,3 +66,17 @@ Set:
 'left ⌥ key acts as +ESC'
 
 EOM
+
+
+cat <<EOM > /dev/null
+# DO NOT:
+defaults export com.googlecode.iterm2 - > com.googlecode.iterm2.plist.defaults-export.xml
+
+exports too many params
+setup:  iterm2 > settings > general > settings > external settings for the 'com.googlecode.iterm2.plist'
+diff com.googlecode.iterm2.plist.defaults-export.xml com.googlecode.iterm2.plist
+
+EOM
+
+
+
