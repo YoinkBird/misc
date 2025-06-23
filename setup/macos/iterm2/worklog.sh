@@ -5,6 +5,8 @@ EOM
 
 # capture current settings after much manual modification
 defaults read com.googlecode.iterm2 > backup_current.plist
+plutil -convert xml1 -o backup_current.xml backup_current.plist
+
 # convert plist to json: https://getpenguin.app/knowledge-base/plist-to-json/
 # vvv creates file called: <stdin>
 # defaults read com.googlecode.iterm2 | plutil -convert json -
